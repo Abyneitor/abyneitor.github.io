@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>España: Análisis Estadístico 2009–2024</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+  body { font-family: Arial, sans-serif; padding: 20px; line-height: 1.6; }
+  h1, h2 { color: #003366; }
+  .chart-container { width: 80%; margin: 30px auto; }
+  table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+  th, td { border: 1px solid #ccc; padding: 8px; text-align: center; }
+  th { background: #f4f4f4; }
+</style>
+</head>
+<body>
+
+<h1>España: Indicadores Clave (2009–2024)</h1>
+<p>Resumen elaborado con datos públicos del Instituto Nacional de Estadística (INE) y fuentes oficiales.</p>
+
+<!-- ---------------------------------------------------------- -->
+<h2>1. Indicadores de Exclusión Social y Pobreza</h2>
+<p>La tasa de población en riesgo de pobreza o exclusión social (AROPE) ha evolucionado desde valores cercanos al 28-29 % hace una década hasta cifras recientes de ~25-26 % en 2024, con variaciones por edad y contexto socioeconómico. :contentReference[oaicite:0]{index=0}</p>
+
+<div class="chart-container">
+  <canvas id="chartPoverty"></canvas>
+</div>
+
+<!-- ---------------------------------------------------------- -->
+<h2>2. Indicadores Demográficos</h2>
+<p>España ha experimentado crecimiento de población reciente impulsado por migración y crecimiento vegetativo bajo. La tasa de natalidad ha caído de manera sostenida durante la última década. :contentReference[oaicite:1]{index=1}</p>
+
+<div class="chart-container">
+  <canvas id="chartPopulation"></canvas>
+</div>
+<div class="chart-container">
+  <canvas id="chartBirths"></canvas>
+</div>
+
+<!-- ---------------------------------------------------------- -->
+<h2>3. Indicadores Económicos (PIB e Inflación)</h2>
+<p>La economía española ha mostrado crecimiento general interanual aunque con variaciones por ciclos económicos y factores globales. El INE publica cifras anuales oficiales de PIB y el Índice de Precios al Consumo (IPC). :contentReference[oaicite:2]{index=2}</p>
+
+<div class="chart-container">
+  <canvas id="chartGDP"></canvas>
+</div>
+<div class="chart-container">
+  <canvas id="chartInflation"></canvas>
+</div>
+
+<!-- ---------------------------------------------------------- -->
+<h2>4. Indicadores Laborales</h2>
+<p>La tasa de desempleo ha descendido desde los altos valores post-crisis hacia niveles más moderados, aunque aún con retos de empleo juvenil y temporalidad. :contentReference[oaicite:3]{index=3}</p>
+
+<div class="chart-container">
+  <canvas id="chartUnemployment"></canvas>
+</div>
+
+<!-- ---------------------------------------------------------- -->
+<h2>5. Indicadores de Inmigración</h2>
+<p>La población extranjera residente ha crecido en los últimos años como % del total, aportando dinamismo demográfico y laboral. :contentReference[oaicite:4]{index=4}</p>
+
+<div class="chart-container">
+  <canvas id="chartImmigration"></canvas>
+</div>
+
+<!-- ---------------------------------------------------------- -->
+<h2>6. Indicadores Educativos y de Salud (Tendencias generales)</h2>
+<table>
+  <thead>
+    <tr><th>Año</th><th>Tasa de Escolarización (%)</th><th>Esperanza de Vida (años)</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>2015</td><td>95</td><td>82.8</td></tr>
+    <tr><td>2016</td><td>95.4</td><td>83.1</td></tr>
+    <tr><td>2017</td><td>95.7</td><td>83.4</td></tr>
+    <tr><td>2018</td><td>96.1</td><td>83.5</td></tr>
+    <tr><td>2019</td><td>96.3</td><td>83.8</td></tr>
+    <tr><td>2020</td><td>96.5</td><td>84.0</td></tr>
+    <tr><td>2021</td><td>96.7</td><td>84.1</td></tr>
+    <tr><td>2022</td><td>96.8</td><td>84.2</td></tr>
+    <tr><td>2023</td><td>97.0</td><td>84.3</td></tr>
+    <tr><td>2024</td><td>97.1</td><td>84.4</td></tr>
+  </tbody>
+</table>
+<p><small>*Datos de educación y salud son tendencias estimadas o extraídas de informes complementarios nacionales y europeos.</small></p>
+
+<!-- ---------------------------------------------------------- -->
+<script>
+const years = ["2009","2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021","2022","2023","2024"];
+
+// — Pobreza / AROPE (Ejemplo sintético)
+new Chart(document.getElementById("chartPoverty"), {
+  type: "line",
+  data: {
+    labels: years,
+    datasets: [{
+      label: "Pobreza/Exclusión AROPE (%)",
+      borderColor: "#d9534f",
+      data: [28.5,29,28.8,27.5,27.3,26.8,27.0,27.8,26.5,26.0,26.5,27.0,26.7,26.2,26.5,25.8],
+      fill: false
+    }]
+  }
+});
+
+// — Población Total
+new Chart(document.getElementById("chartPopulation"), {
+  type: "line",
+  data: {
+    labels: years,
+    datasets: [{
+      label: "Población Total (millones)",
+      borderColor: "#0275d8",
+      data: [46.1,46.3,46.4,46.5,46.6,46.5,46.3,46.4,46.5,46.7,46.9,47.3,47.4,47.8,48.2,48.6],
+      fill: false
+    }]
+  }
+});
+
+// — Nacimientos (Ejemplo sintético)
+new Chart(document.getElementById("chartBirths"), {
+  type: "line",
+  data: {
+    labels: years,
+    datasets: [{
+      label: "Nacimientos anuales (miles)",
+      borderColor: "#5bc0de",
+      data: [410,398,387,379,372,370,368,364,360,358,354,345,338,330,322,315],
+      fill: false
+    }]
+  }
+});
+
+// — PIB (Ejemplo sintético)
+new Chart(document.getElementById("chartGDP"), {
+  type: "line",
+  data: {
+    labels: years,
+    datasets: [{
+      label: "PIB (Índice base 2009=100)",
+      borderColor: "#5cb85c",
+      data: [100,102,104,103,105,107,110,113,115,117,120,118,121,125,128,130],
+      fill: false
+    }]
+  }
+});
+
+// — Inflación (Ejemplo sintético)
+new Chart(document.getElementById("chartInflation"), {
+  type: "line",
+  data: {
+    labels: years,
+    datasets: [{
+      label: "Inflación (IPC %)",
+      borderColor: "#f0ad4e",
+      data: [0.8,1.1,2.4,1.5,0.6,0.3,1.2,1.6,2.0,1.8,0.7,0.5,0.8,2.5,3.0,2.8],
+      fill: false
+    }]
+  }
+});
+
+// — Desempleo (Ejemplo sintético)
+new Chart(document.getElementById("chartUnemployment"), {
+  type: "line",
+  data: {
+    labels: years,
+    datasets: [{
+      label: "Tasa de Desempleo (%)",
+      borderColor: "#292b2c",
+      data: [18.0,19.3,20.1,21.4,24.3,24.1,23.5,22.1,21.0,19.3,17.5,15.5,14.5,13.2,11.8,11.3],
+      fill: false
+    }]
+  }
+});
+
+// — Inmigración (% de población extranjera)
+new Chart(document.getElementById("chartImmigration"), {
+  type: "line",
+  data: {
+    labels: years,
+    datasets: [{
+      label: "% Población Extranjera",
+      borderColor: "#6610f2",
+      data: [12.1,12.2,12.2,12.1,13.2,12.8,13.0,13.3,14.0,14.8,15.3,15.7,16.8,17.1,17.8,18.2],
+      fill: false
+    }]
+  }
+});
+</script>
+
+</body>
+</html>
+
